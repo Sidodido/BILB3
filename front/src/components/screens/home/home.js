@@ -42,11 +42,7 @@ const stories = [
 const posts = [
   {
     id: 1,
-<<<<<<< HEAD
     author: 'Ahmed Nadir',
-=======
-    author: 'Ahhmed Nadir',
->>>>>>> 74e8c35 (first commit)
     avatar:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     time: '5h',
@@ -61,7 +57,7 @@ const posts = [
     id: 2,
     author: 'BILB - OFFICIAL',
     avatar:
-      'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     time: '5h',
     content:
       'En Prochaine apparition, De Rêves et de Papiers un Livre de Rozenn le Berre, découvrez la quatrième de couverture ci-dessous',
@@ -72,7 +68,7 @@ const posts = [
     id: 3,
     author: 'BILB - OFFICIAL',
     avatar:
-      'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     time: '2h',
     content:
       'Nationalité : Algérie Né(e) à : Taghzout Yousef (Constantine), le 20/02/1929 Mort(e) à : Université, le 28/10/1959...',

@@ -4,10 +4,3 @@ extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autoli
 rootProject.name = 'BILB'
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 74e8c35 (first commit)

@@ -20,7 +20,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="Welcome">
+        initialRouteName="Main">
         <Stack.Screen name="Main" component={DrawerNavigation} />
         <Stack.Screen name="Welcome2" component={Welcome2} />
         <Stack.Screen name="Welcome" component={Welcome} />
