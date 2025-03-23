@@ -13,15 +13,26 @@ import {
   Dimensions,
   FlatList,
 } from 'react-native';
+import {Button, Card, Switch} from 'react-native-paper';
 import Header from '../../header';
 import {colors, icons, images} from '../../constants';
 import books from './data';
+import {Modal} from 'react-native-paper';
 
 const numColumns = 2;
 const size = Dimensions.get('window').width / numColumns;
-
+const {width} = Dimensions.get('window');
+const scale = width / 420;
 export default function Market() {
   const [activeTab, setActiveTab] = useState('All');
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [text, setText] = React.useState('');
+  const onClose = () => setIsOpen(false);
+
+  const [visible, setVisible] = React.useState(false);
+  const [selectedBook, setSelectedBook] = React.useState(null);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
 
   const tabs = [
     {key: 'All', label: 'All'},
@@ -32,9 +43,7 @@ export default function Market() {
   ];
 
   const filteredBooks =
-    activeTab === 'All'
-      ? books
-      : books.filter(item => item.type === activeTab);
+    activeTab === 'All' ? books : books.filter(item => item.type === activeTab);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -80,15 +89,18 @@ export default function Market() {
         <FlatList
           data={filteredBooks}
           renderItem={({item}) => (
-            <View style={styles.itemContainer}>
-              <Image style={{width: 180, height: 250}} source={item.image} />
-              <Text style={styles.itemTitle}>{item.title}</Text>
-              <Text style={styles.item}>Author: {item.Author}</Text>
-              <Text style={styles.item}>Price: {item.Price}</Text>
-              <TouchableOpacity style={{height: 40}}>
-                <Text style={styles.button}>Commander</Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              onPress={() => {
+                setSelectedBook(item); // stocker le livre cliqué
+                showModal(); // afficher le modal
+              }}>
+              <View style={styles.itemContainer}>
+                <Image style={{width: 180, height: 250}} source={item.image} />
+                <Text style={styles.itemTitle}>{item.title}</Text>
+                <Text style={styles.item}>Author: {item.Author}</Text>
+                <Text style={styles.item}>Price: {item.Price}</Text>
+              </View>{' '}
+            </TouchableOpacity>
           )}
           keyExtractor={item => item.id.toString()}
           numColumns={numColumns}
@@ -101,15 +113,105 @@ export default function Market() {
 
         <View style={{height: 100}} />
       </ScrollView>
+
+      <Modal
+        visible={visible}
+        onDismiss={hideModal}
+        contentContainerStyle={{
+          padding: 30 * scale,
+          margin: 30 * scale,
+          backgroundColor: colors.white,
+          borderRadius: 20 * scale,
+        }}>
+        <TouchableOpacity
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+          onPress={hideModal}>
+          <View />
+          <Image
+            source={icons.plus}
+            style={{
+              height: 30 * scale,
+              width: 30 * scale,
+              tintColor: colors.Quaternary,
+              padding: 0 * scale,
+              margin: 0 * scale,
+            }}
+          />
+        </TouchableOpacity>
+
+        {selectedBook && (
+          <View>
+            <Image
+              source={selectedBook.image}
+              style={{width: 140, height: 220, marginHorizontal: 'auto'}}
+            />
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: 'bold',
+                fontSize: 20 * scale,
+                color: colors.Quaternary,
+                marginBottom: 10 * scale,
+              }}>
+              {selectedBook.title}
+            </Text>
+            <View style={{alignItems: 'start'}}>
+              <Text style={styles.textCard}>
+                Author : {selectedBook.Author}
+              </Text>
+              <Text style={styles.textCard}>Year : {selectedBook.Year}</Text>
+              <Text style={styles.textCard}>Isbn : {selectedBook.Isbn}</Text>
+              <Text style={styles.textCard}>Type : {selectedBook.type}</Text>
+              <Text style={styles.textCard}>Price : {selectedBook.Price}</Text>
+              <View flexDirection={'row'} style={{justifyContent:'center'}}><Text style={styles.textCard}>
+                description : {''}
+               
+              </Text>
+              <ScrollView style={{height:100,marginTop:5}}><Text style={styles.description}>{selectedBook.Description}</Text></ScrollView>
+               
+              
+              </View>
+              
+            </View>
+          </View>
+        )}
+
+        <View style={{justifyContent: 'center'}}>
+          <Button
+            style={{
+              width: 170 * scale,
+              marginTop: 20 * scale,
+              backgroundColor: colors.Quaternary,
+              marginHorizontal: 'auto',
+              borderRadius: 10 * scale,
+            }}
+            mode="contained"
+            onPress={hideModal}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 17 * scale,
+                fontWeight: 'bold',
+              }}>
+              Command
+            </Text>
+          </Button>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   itemContainer: {
     width: size,
-    height: 340,
+    height: 310,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 5,
   },
   itemTitle: {
     flex: 1,
@@ -118,6 +220,13 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
+  },
+  description: {
+    flex: 1,
+    color: '#808080',
+  },
+  textCard: {
+    fontSize: 17,
   },
   button: {
     flex: 1,

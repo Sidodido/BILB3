@@ -1,22 +1,12 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {View, Text, Image, TextInput, StyleSheet} from 'react-native';
-import {colors, icons, images} from '../../constants';
-import {Dimensions} from 'react-native';
-import Header from '../../header';
-const {width} = Dimensions.get('window');
-const scale = width / 420;
+import { View, Text } from 'react-native'
+import React from 'react'
 
-export default function Community() {
+const Community = () => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: colors.white}}>
-      <Header title="Community" />
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: colors.white,
-          alignItems: 'center',
-        }}></View>
-    </SafeAreaView>
-  );
+    <View>
+      <Text>Community</Text>
+    </View>
+  )
 }
+
+export default Community
