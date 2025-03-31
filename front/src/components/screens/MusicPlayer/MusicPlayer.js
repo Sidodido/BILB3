@@ -20,42 +20,94 @@ const tracks = [
     id: '1',
     title: 'Song 1',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(15).png'),
+    image: require('../../../assets/BilbPhotos/livre1.png'),
     artist: 'zedk',
   },
   {
     id: '2',
     title: 'Song 2',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(14).png'),
+    image: require('../../../assets/BilbPhotos/livre2.png'),
+
     artist: 'zedk',
   },
   {
     id: '3',
     title: 'Song 3',
     url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(13).png'),
+    image: require('../../../assets/BilbPhotos/livre3.png'),
+
     artist: 'zedk',
   },
   {
     id: '4',
-    title: 'Song 1',
-    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(15).png'),
+    title: 'Song 4',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+    image: require('../../../assets/BilbPhotos/livre4.png'),
+
     artist: 'zedk',
   },
   {
     id: '5',
-    title: 'Song 2',
-    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(14).png'),
+    title: 'Song 5',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+    image: require('../../../assets/BilbPhotos/livre5.png'),
+
     artist: 'zedk',
   },
   {
     id: '6',
-    title: 'Song 3',
-    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    image: require('../../../assets/BilbPhotos/livre-(13).png'),
+    title: 'Song 6',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    image: require('../../../assets/BilbPhotos/livre6.png'),
+
+    artist: 'zedk',
+  },
+  {
+    id: '7',
+    title: 'Song 7',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    image: require('../../../assets/BilbPhotos/livre7.png'),
+    artist: 'zedk',
+  },
+  {
+    id: '8',
+    title: 'Song 8',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+    image: require('../../../assets/BilbPhotos/livre8.png'),
+
+    artist: 'zedk',
+  },
+  {
+    id: '9',
+    title: 'Song 9',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3',
+    image: require('../../../assets/BilbPhotos/livre9.png'),
+
+    artist: 'zedk',
+  },
+  {
+    id: '10',
+    title: 'Song 10',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3',
+    image: require('../../../assets/BilbPhotos/livre10.png'),
+
+    artist: 'zedk',
+  },
+  {
+    id: '11',
+    title: 'Song 11',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3',
+    image: require('../../../assets/BilbPhotos/livre11.png'),
+
+    artist: 'zedk',
+  },
+  {
+    id: '12',
+    title: 'Song 12',
+    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3',
+    image: require('../../../assets/BilbPhotos/livre12.png'),
+
     artist: 'zedk',
   },
 ];

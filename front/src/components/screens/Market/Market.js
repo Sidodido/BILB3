@@ -18,6 +18,7 @@ import Header from '../../header';
 import {colors, icons, images} from '../../constants';
 import books from './data';
 import {Modal} from 'react-native-paper';
+import FloatingActions from './components/FloatingAction';
 
 const numColumns = 2;
 const size = Dimensions.get('window').width / numColumns;
@@ -113,7 +114,7 @@ export default function Market() {
 
         <View style={{height: 100}} />
       </ScrollView>
-
+      <FloatingActions />
       <Modal
         visible={visible}
         onDismiss={hideModal}
@@ -167,15 +168,14 @@ export default function Market() {
               <Text style={styles.textCard}>Isbn : {selectedBook.Isbn}</Text>
               <Text style={styles.textCard}>Type : {selectedBook.type}</Text>
               <Text style={styles.textCard}>Price : {selectedBook.Price}</Text>
-              <View flexDirection={'row'} style={{justifyContent:'center'}}><Text style={styles.textCard}>
-                description : {''}
-               
-              </Text>
-              <ScrollView style={{height:100,marginTop:5}}><Text style={styles.description}>{selectedBook.Description}</Text></ScrollView>
-               
-              
+              <View flexDirection={'row'} style={{justifyContent: 'center'}}>
+                <Text style={styles.textCard}>description : {''}</Text>
+                <ScrollView style={{height: 100, marginTop: 5}}>
+                  <Text style={styles.description}>
+                    {selectedBook.Description}
+                  </Text>
+                </ScrollView>
               </View>
-              
             </View>
           </View>
         )}

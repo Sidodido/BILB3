@@ -12,7 +12,7 @@ import {colors, icons, images} from '../../../constants';
 const bookStories = [
   {
     id: 1,
-    type: 'create',
+    
     image:
       'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
   },
@@ -30,6 +30,21 @@ const bookStories = [
     id: 4,
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 6,
+    image:
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80',
+  },
+  {
+    id: 7,
+    image:
+      'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1235&q=80',
+  },
+  {
+    id: 8,
+    image:
+      'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1248&q=80',
   },
 ];
 
@@ -52,6 +67,27 @@ const stories = [
   },
   {
     id: 4,
+    image:
+      'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1248&q=80',
+  },
+  {
+    id: 5,
+    type: 'create',
+    image:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    id: 6,
+    image:
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80',
+  },
+  {
+    id: 7,
+    image:
+      'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1235&q=80',
+  },
+  {
+    id: 8,
     image:
       'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1248&q=80',
   },
@@ -118,18 +154,9 @@ const Stories = () => {
             <View style={styles.storyImageContainer}>
               <Image source={{uri: story.image}} style={styles.storyImage} />
               {story.type === 'create' && (
-                <View style={styles.createStoryButton}>
-                  <Image
-                    source={images.plus}
-                    style={{
-                      width: 25,
-                      height: 25,
-                      tintColor: colors.white,
-                    }}
-                    name="plus"
-                    size={12}
-                    color="white"
-                  />
+               
+                <View >
+            
                 </View>
               )}
             </View>
@@ -174,7 +201,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   storyItem: {
-    marginRight: 16,
+    marginRight: 6,
   },
   storyImageContainer: {
     width: 100,

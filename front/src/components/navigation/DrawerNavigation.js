@@ -282,7 +282,7 @@ const DrawerNavigation = () => {
           drawerIcon: () => {
             return (
               <Image
-                source={images.contact}
+                source={icons.contactus}
                 resizeMode="contain"
                 style={{
                   height: 24,
@@ -306,7 +306,7 @@ const DrawerNavigation = () => {
           drawerIcon: () => {
             return (
               <Image
-                source={images.feedback}
+                source={icons.feedbacks}
                 resizeMode="contain"
                 style={{
                   height: 24,
