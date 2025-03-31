@@ -12,10 +12,9 @@ import Animated, {
   useAnimatedScrollHandler,
   useAnimatedRef,
 } from 'react-native-reanimated';
-import Pagination from './Pagination';
 import CustomImage from './CustomImage';
-import {colors, icons} from '../../../../constants';
-const CustomImageCarousal = ({data, autoPlay, pagination}) => {
+import {colors, icons} from '../../../constants';
+const CustomImageCarousal = ({data, autoPlay}) => {
   const scrollViewRef = useAnimatedRef(null);
   const interval = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);

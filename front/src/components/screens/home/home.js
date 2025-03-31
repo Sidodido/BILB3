@@ -10,10 +10,20 @@ import {
   SafeAreaView,
   StatusBar,
   Platform,
+  Pressable,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Header from '../../header';
 import {colors, icons, images} from '../../constants';
-
+import Animated, {
+  withDelay,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
+import {FloatingAction} from 'react-native-floating-action';
 // Mock data for stories and posts
 const stories = [
   {
@@ -38,7 +48,42 @@ const stories = [
       'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1248&q=80',
   },
 ];
+const actions = [
+  {
+    text: 'Add a story',
+    icon: require('../../../assets/icons/live.png'),
+    name: 'bt_story',
+    position: 2,
+    color: colors.Quaternary,
+    textBackground: colors.Quaternary, // Background color of the text label
+    textColor: colors.white, // Text color
+  },
+  {
+    text: 'Add a book',
+    icon: require('../../../assets/icons/book2.png'),
+    color: colors.Quaternary,
+    textBackground: colors.Quaternary, // Background color of the text label
+    textColor: colors.white, // Text color
+    name: 'bt_book',
+    position: 1,
+  },
+  {
+    text: 'Add a post',
+    icon: require('../../../assets/icons/plus.png'),
+    color: colors.Quaternary,
+    textBackground: colors.Quaternary, // Background color of the text label
+    textColor: colors.white, // Text color
+    name: 'bt_post',
+    position: 3,
+  },
+  // {
+  //   text: 'Video',
+  //   icon: require('../../../assets/icons/book2.png'),
 
+  //   name: 'bt_videocam',
+  //   position: 4,
+  // },
+];
 const posts = [
   {
     id: 1,
@@ -102,8 +147,61 @@ const bookStories = [
   },
 ];
 
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+const SPRING_CONFIG = {
+  duration: 1200,
+  overshootClamping: true,
+  dampingRatio: 0.8,
+};
+
+const OFFSET = 60;
+
+const FloatingActionButton = ({isExpanded, index, buttonLetter}) => {
+  const animatedStyles = useAnimatedStyle(() => {
+    const moveValue = isExpanded.value ? OFFSET * index : 0;
+    const translateValue = withSpring(-moveValue, SPRING_CONFIG);
+    const delay = index * 100;
+const navigation = useNavigation();
+    const scaleValue = isExpanded.value ? 1 : 0;
+
+    return {
+      transform: [
+        {translateY: translateValue},
+        {
+          scale: withDelay(delay, withTiming(scaleValue)),
+        },
+      ],
+    };
+  });
+
+  return (
+    <AnimatedPressable style={[animatedStyles, styles.shadow, styles.button]}>
+      <Animated.Text style={styles.content}>{buttonLetter}</Animated.Text>
+    </AnimatedPressable>
+  );
+};
 export default function home({navigation}) {
   const [activeTab, setActiveTab] = useState('stories');
+  const isExpanded = useSharedValue(false);
+
+  const handlePress = () => {
+    isExpanded.value = !isExpanded.value;
+  };
+
+  const plusIconStyle = useAnimatedStyle(() => {
+    const moveValue = interpolate(Number(isExpanded.value), [0, 1], [0, 2]);
+    const translateValue = withTiming(moveValue);
+    const rotateValue = isExpanded.value ? '45deg' : '0deg';
+
+    return {
+      transform: [
+        {translateX: translateValue},
+        {rotate: withTiming(rotateValue)},
+      ],
+    };
+  });
 
   return (
     <SafeAreaView style={styles.container}>
@@ -130,24 +228,23 @@ export default function home({navigation}) {
           />
         </View>
         {/* What's New Section */}
-  <TouchableOpacity onPress={() => navigation.navigate('News')}>
-        <View style={styles.whatsNew}>
-          <View style={styles.whatsNewIcon}>
-            <Image
-              source={images.news}
-              size={10}
-              style={{
-                width: 25,
-                height: 13,
-                tintColor: colors.white,
-              }}
-            />
-          </View>
-        
+        <TouchableOpacity onPress={() => navigation.navigate('News')}>
+          <View style={styles.whatsNew}>
+            <View style={styles.whatsNewIcon}>
+              <Image
+                source={images.news}
+                size={10}
+                style={{
+                  width: 25,
+                  height: 13,
+                  tintColor: colors.white,
+                }}
+              />
+            </View>
+
             <Text style={styles.whatsNewText}>WHAT'S NEW ?</Text>
-          
-        </View>
-</TouchableOpacity>
+          </View>
+        </TouchableOpacity>
         {/* Navigation Tabs */}
         <View style={styles.tabs}>
           <TouchableOpacity
@@ -155,7 +252,7 @@ export default function home({navigation}) {
             onPress={() => setActiveTab('stories')}>
             <Image
               name="book-open"
-              source={images.story}
+              source={icons.live}
               size={10}
               style={{
                 width: 25,
@@ -177,7 +274,7 @@ export default function home({navigation}) {
             onPress={() => setActiveTab('books')}>
             <Image
               name="book-open"
-              source={images.book}
+              source={icons.book2}
               style={{
                 width: 16,
                 height: 18,
@@ -265,10 +362,39 @@ export default function home({navigation}) {
         </View>
         <View style={{height: 100}}></View>
       </ScrollView>
+      <View
+        style={{
+          height: 0,
+          position: 'relative',
+          marginBottom: 50,
+          marginTop: -100,
+        }}>
+        <FloatingAction
+          overlayColor="black"
+          color={colors.Quaternary}
+          a
+          actions={actions}
+          onPressItem={name => {
+            if (name === 'bt_story') {
+              navigation.navigate('AddStory'); // Navigate to Home
+            } else if (name === 'bt_book') {
+              navigation.navigate('AddBook'); // Navigate to Market
+            } else if (name === 'bt_post') {
+              navigation.navigate('AddPost'); // Navigate to Ebook
+            }
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
+  
+  content: {
+    color: '#f8f9ff',
+    fontWeight: 500,
+  },
   container: {
     flex: 1,
     backgroundColor: colors.white,

@@ -7,13 +7,14 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import books from './data/books';
+import books from '../data/books';
 
-const Carrousel = ({item}) => {
+const Carrousel = ({onBookSelect}) => {
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
-      <Image source={item.image} style={styles.image} />
-      {/* <Text style={styles.title}>{item.title}</Text> */}
+      <TouchableOpacity onPress={() => onBookSelect(item)}>
+        <Image source={item.image} style={styles.image} />
+      </TouchableOpacity>
     </View>
   );
 
@@ -34,18 +35,17 @@ const Carrousel = ({item}) => {
 const styles = StyleSheet.create({
   carouselContainer: {
     backgroundColor: '#fff',
-    height: 260,
   },
   list: {
     paddingHorizontal: 10,
   },
   itemContainer: {
-    width: 150,
+    width: 160,
     marginHorizontal: 5,
     alignItems: 'center',
   },
   image: {
-    width: '100%',
+    width: 160,
     height: 220,
   },
   title: {

@@ -17,6 +17,12 @@ import ContactUs from './ContactUs/ContactUs';
 import PremiumMode from './PremiumMode/PremiumMode';
 import HistoryOfPaiment from './HistoryOfPaiment/HistoryOfPaiment';
 import News from './News/News';
+import PdfReader from './pdfReader/pdfReader';
+import MusicPlayer from './MusicPlayer/MusicPlayer';
+import AddBook from './home/components/AddBook';
+import AddStory from './home/components/AddStory';
+import AddPost from './home/components/AddPost';
+
 
 
 
@@ -40,5 +46,10 @@ export {
   ContactUs,
   FeedBack,
   Orders,
+  PdfReader,
+  MusicPlayer,
+  AddPost,
+  AddStory,
+  AddBook,
 };
 

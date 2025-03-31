@@ -1,6 +1,6 @@
 import {colors, icons, images} from '../../../constants';
 
-export default [
+export default data=[
   {
     id: 1,
     title: 'Apple Watch Series 7',
@@ -11,14 +11,14 @@ export default [
   {
     id: 2,
     title: 'AirPods Pro',
-    img: require('../../../../assets/BilbPhotos/livre-(15).png'),
+    img: require('../../../../assets/BilbPhotos/livre-(16).png'),
 
     description: 'Active noise cancellation for immersive sound',
     price: '$249',
   },
   {
     id: 3,
-    img: require('../../../../assets/BilbPhotos/livre-(14).png'),
+    img: require('../../../../assets/BilbPhotos/livre-(13).png'),
 
     title: 'AirPods Max',
     description: 'Effortless AirPods experience',
@@ -35,7 +35,7 @@ export default [
   {
     id: 5,
     title: 'Smart Lock',
-    img: require('../../../../assets/BilbPhotos/livre-(12).png'),
+    img: require('../../../../assets/BilbPhotos/livre-(13).png'),
 
     description: 'Unlock your door with your phone',
     price: '$199',

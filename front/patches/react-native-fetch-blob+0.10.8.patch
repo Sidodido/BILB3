@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-fetch-blob/android/build.gradle b/node_modules/react-native-fetch-blob/android/build.gradle
+index 919e64a..9845d90 100644
+--- a/node_modules/react-native-fetch-blob/android/build.gradle
++++ b/node_modules/react-native-fetch-blob/android/build.gradle
+@@ -6,7 +6,7 @@ repositories {
+ 
+ buildscript {
+     repositories {
+-        jcenter()
++        mavenCentral()
+     }
+     dependencies {
+         classpath 'com.android.tools.build:gradle:2.2.3'

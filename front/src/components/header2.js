@@ -8,44 +8,41 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {colors, icons,images} from './constants';
-
+import {colors, icons, images} from './constants';
 
 import {Dimensions} from 'react-native';
 const {width} = Dimensions.get('window');
 const scale = width / 420;
-
-
 
 const header = ({title, onPress}) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={{flexDirection: 'row' }}>
-        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             resizeMode="contain"
             style={{
               height: 35 * scale,
               width: 35 * scale,
-              marginTop:10,
-              tintColor:colors.Quaternary
+              marginTop: 10,
+              tintColor: colors.Quaternary,
             }}
-            source={icons.drawer}
+            source={icons.back}
           />
         </TouchableOpacity>
         <View
           style={{
             flex: 1,
-            alignItems:'center',
+            alignItems: 'center',
           }}>
           <Image
             resizeMode="contain"
             style={{
               height: 70 * scale,
               width: 100 * scale,
-              marginBottom:5,
+              marginBottom: 5,
             }}
             source={images.LOGO2}
           />
@@ -59,13 +56,7 @@ const header = ({title, onPress}) => {
             {title}
           </Text>
         </View>
-        <TouchableOpacity style={styles.iconContainer}>
-          <Image
-            resizeMode="contain"
-            style={styles.icon}
-            source={icons.notif}
-          />
-        </TouchableOpacity>
+        <View style={{width: 40}}></View>
       </View>
     </View>
   );

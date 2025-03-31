@@ -12,6 +12,11 @@ import {
   SignIn,
   OTP,
   LogIn,
+  PdfReader,
+  MusicPlayer,
+  AddBook,
+  AddPost,
+  AddStory,
 } from './src/components/screens';
 const Stack = createNativeStackNavigator();
 //jgfyftyrfygftytf
@@ -22,6 +27,11 @@ export default function App() {
         screenOptions={{headerShown: false}}
         initialRouteName="Main">
         <Stack.Screen name="Main" component={DrawerNavigation} />
+        <Stack.Screen name="PdfReader" component={PdfReader} />
+        <Stack.Screen name="AddPost" component={AddPost} />
+        <Stack.Screen name="AddStory" component={AddStory} />
+        <Stack.Screen name="AddBook" component={AddBook} />
+        <Stack.Screen name="MusicPlayer" component={MusicPlayer} />
         <Stack.Screen name="Welcome2" component={Welcome2} />
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="SignIn" component={SignIn} />

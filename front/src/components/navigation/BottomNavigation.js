@@ -56,7 +56,7 @@ const BottomNavigation = () => {
           tabBarIcon: ({focused}) => {
             return (
               <Image
-                source={images.book}
+                source={icons.book2}
                 resizeMode="contain"
                 style={{
                   marginTop: 32,
@@ -132,7 +132,7 @@ const BottomNavigation = () => {
           tabBarIcon: ({focused}) => {
             return (
               <Image
-                source={images.Ebook}
+                source={icons.book1}
                 resizeMode="contain"
                 style={{
                   marginTop: 32,

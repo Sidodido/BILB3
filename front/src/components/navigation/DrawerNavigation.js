@@ -9,6 +9,7 @@ import {
   ContactUs,
   FeedBack,
   Orders,
+  MusicPlayer
 } from '../screens';
 import BottomNavigation from './BottomNavigation';
 import {View, Text, Image, Platform, Button} from 'react-native';
@@ -100,6 +101,30 @@ const DrawerNavigation = () => {
           },
         }}
         component={BottomNavigation}
+      />
+      <Drawer.Screen
+        name="MusicPlayer"
+        options={{
+          drawerLabel: 'Music Player',
+          title: 'Music Player',
+          headerShadowVisible: false,
+          drawerIcon: () => {
+            return (
+              <Image
+                source={images.aPropos}
+                resizeMode="contain"
+                style={{
+                  height: 24,
+                  width: 24,
+                  marginRight: 10,
+
+                  tintColor: colors.Quaternary,
+                }}
+              />
+            );
+          },
+        }}
+        component={MusicPlayer}
       />
 
       <Drawer.Screen

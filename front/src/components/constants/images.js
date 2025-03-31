@@ -39,7 +39,7 @@ const livre12 = require('../../assets/BilbPhotos/livre (12).png');
 const livre13 = require('../../assets/BilbPhotos/livre (13).png');
 const livre14 = require('../../assets/BilbPhotos/livre (14).png');
 const livre15 = require('../../assets/BilbPhotos/livre (15).png');
-const livre16 = require('../../assets/BilbPhotos/livre(16).png');
+const livre16 = require('../../assets/BilbPhotos/livre-(16).png');
 
 export default {
   avatar,
