@@ -146,6 +146,7 @@ const BottomNavigation = () => {
         }}
       />
     </Tab.Navigator>
+     
   );
 };
 

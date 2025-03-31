@@ -1,6 +1,6 @@
 
-import Ebook from './Ebook/Ebook'
-import Home from './home/home'
+import Ebook from './PhysicalBook/PhysicalBook'
+import Home from './home/Home'
 import Parameters from './parametres/parametres'
 import Market from './Market/Market'
 import Profile from './Profile/Profile'

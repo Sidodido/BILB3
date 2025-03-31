@@ -99,7 +99,7 @@ export default function Market() {
                 <Text style={styles.itemTitle}>{item.title}</Text>
                 <Text style={styles.item}>Author: {item.Author}</Text>
                 <Text style={styles.item}>Price: {item.Price}</Text>
-              </View>{' '}
+              </View>
             </TouchableOpacity>
           )}
           keyExtractor={item => item.id.toString()}

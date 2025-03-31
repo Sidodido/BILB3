@@ -13,8 +13,10 @@ import Animated, {
   useAnimatedRef,
 } from 'react-native-reanimated';
 import CustomImage from './CustomImage';
+import {useNavigation} from '@react-navigation/native';
 import {colors, icons} from '../../../constants';
 const CustomImageCarousal = ({data, autoPlay}) => {
+  const navigation = useNavigation(); 
   const scrollViewRef = useAnimatedRef(null);
   const interval = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,13 +86,13 @@ const CustomImageCarousal = ({data, autoPlay}) => {
         horizontal
         bounces={false}
         showsHorizontalScrollIndicator={false}>
-        {newData.map((item, index) => {
+        {newData.map((item, id) => {
           return (
             <View>
               <View>
                 <CustomImage
-                  key={index}
-                  index={index}
+                  key={id}
+                  index={id}
                   item={item}
                   x={x}
                   size={SIZE}
@@ -122,7 +124,9 @@ const CustomImageCarousal = ({data, autoPlay}) => {
           </View>
           <Text style={styles.buttonText}>My List</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{marginHorizontal: 7}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('PdfReader')}
+          style={{marginHorizontal: 7}}>
           <View
             style={{
               width: 120,

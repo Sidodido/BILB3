@@ -1,43 +1,211 @@
-import {colors, icons, images} from '../../../constants';
-
-export default data=[
+const books = [
   {
     id: 1,
-    title: 'Apple Watch Series 7',
-    img: require('../../../../assets/BilbPhotos/livre-(16).png'),
-    description: 'The future of health is on your wrist',
-    price: '$399',
+    img: require('../../../../assets/BilbPhotos/livre1.png'),
+    title: 'Titltle of book',
+    type: 'painting',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
   },
   {
     id: 2,
-    title: 'AirPods Pro',
-    img: require('../../../../assets/BilbPhotos/livre-(16).png'),
+    img: require('../../../../assets/BilbPhotos/livre2.png'),
 
-    description: 'Active noise cancellation for immersive sound',
-    price: '$249',
+    title: 'Titltle of book',
+    type: 'painting',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
   },
   {
     id: 3,
-    img: require('../../../../assets/BilbPhotos/livre-(13).png'),
+    img: require('../../../../assets/BilbPhotos/livre3.png'),
 
-    title: 'AirPods Max',
-    description: 'Effortless AirPods experience',
-    price: '$549',
+    title: 'Titltle of book',
+    type: 'painting',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
   },
   {
     id: 4,
-    title: 'Charger',
-    img: require('../../../../assets/BilbPhotos/livre-(13).png'),
+    img: require('../../../../assets/BilbPhotos/livre4.png'),
 
-    description: "It's not magic, it's just science",
-    price: '$49',
+    title: 'Titltle of book',
+    type: 'books',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
   },
   {
     id: 5,
-    title: 'Smart Lock',
-    img: require('../../../../assets/BilbPhotos/livre-(13).png'),
+    img: require('../../../../assets/BilbPhotos/livre5.png'),
 
-    description: 'Unlock your door with your phone',
-    price: '$199',
+    title: 'Titltle of book',
+    type: 'books',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 6,
+    img: require('../../../../assets/BilbPhotos/livre6.png'),
+
+    title: 'Titltle of book',
+    type: 'books',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 7,
+    img: require('../../../../assets/BilbPhotos/livre7.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 8,
+    img: require('../../../../assets/BilbPhotos/livre8.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 9,
+    img: require('../../../../assets/BilbPhotos/livre9.png'),
+
+    title: 'Titltle of book',
+    type: 'painting',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 10,
+    img: require('../../../../assets/BilbPhotos/livre10.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 11,
+    img: require('../../../../assets/BilbPhotos/livre11.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 12,
+    img: require('../../../../assets/BilbPhotos/livre12.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 13,
+    img: require('../../../../assets/BilbPhotos/livre13.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 14,
+    img: require('../../../../assets/BilbPhotos/livre14.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 15,
+    img: require('../../../../assets/BilbPhotos/livre15.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
+  },
+  {
+    id: 16,
+    img: require('../../../../assets/BilbPhotos/livre16.png'),
+
+    title: 'Titltle of book',
+    type: 'exchange',
+    Author: 'Ahmed',
+    Year: '2025',
+    Isbn: '10103456234',
+    Price: '25 $',
+    Description:
+      'In a remote village surrounded by an ancient forest, strange things begin to happen when a young girl discovers a hidden path no one dares to follow. As she ventures deeper into the woods, she uncovers secrets buried for centuries—secrets that could change her life and the fate of her village forever. The Silent Forest is a gripping tale of mystery, courage, and the power of nature.',
   },
 ];
+
+export default books;

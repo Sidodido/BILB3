@@ -43,7 +43,7 @@ export default function Books({navigation}) {
         <View style={{height: 400, marginBottom: 0}}>
           <Slider />
         </View>
-
+  <View style={{marginTop:50}}></View>
         <Text style={styles.sectionTitle}>Popular on Bilb</Text>
         <CarrouselRounded onBookSelect={showModal} />
 
