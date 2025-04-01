@@ -1,33 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {launchImageLibrary} from 'react-native-image-picker';
-import {useState} from 'react';
 import {
   View,
   Text,
-  Image,
-  TextInput,
+  FlatList,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
+  Image,
+  ScrollView,
+  TextInput,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
-import {colors, icons, images} from '../../../constants';
+import {colors, icons} from '../../../constants';
 import {Dimensions} from 'react-native';
+import Header from '../../../header2';
 import {Button} from 'react-native-paper';
 
 const {width} = Dimensions.get('window');
 const scale = width / 420;
 
-import Header from '../../../header2';
-const AddBook = () => {
-  const [show, setShow] = React.useState(false);
-  const [text, onChangeText] = React.useState('');
-  const [mdp, onChangeMdp] = React.useState('');
-    const navigation = useNavigation();
-    const [selectedImage, setSelectedImage] = useState(null);
+const PaymentCategory = () => {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const navigation = useNavigation();
+  const paymentMethods = ['Cash', 'E-payment Card', 'Dahabia'];
+  const paymentRoutes = {
+    Cash: 'CashPaiment',
+    'E-payment Card': 'Epaiment',
+    Dahabia: 'DahabiaPaiment',
+  };
 
+  const handleConfirm = () => {
+    if (selectedIndex !== null) {
+      const selectedMethod = paymentMethods[selectedIndex];
+      const routeName = paymentRoutes[selectedMethod];
+      if (routeName) {
+        navigation.navigate(routeName, {paymentMethod: selectedMethod});
+      }
+    }
+  };
+   const [show, setShow] = React.useState(false);
+    const [text, onChangeText] = React.useState('');
+    const [mdp, onChangeMdp] = React.useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
+  
     const requestPermission = async () => {
       if (Platform.OS === 'android') {
         const granted = await PermissionsAndroid.request(
@@ -43,14 +58,14 @@ const AddBook = () => {
       }
       return true; // iOS doesn't need runtime permission
     };
-
+  
     const pickImage = async () => {
       const hasPermission = await requestPermission();
       if (!hasPermission) {
         Alert.alert('Permission Denied', 'You need to allow gallery access.');
         return;
       }
-
+  
       launchImageLibrary({mediaType: 'photo'}, response => {
         if (response.didCancel) {
           console.log('User cancelled the picker');
@@ -61,20 +76,17 @@ const AddBook = () => {
         }
       });
     };
-
+  
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors.white,
-      }}>
-      <Header title={'Add a book'} />
+    <View style={styles.container}>
+      <Header title={"Let's pay cash"} />
+      <Text style={styles.instructionText}>Enter this informations</Text>
       <View
         style={{
           flexDirection: 'column',
           alignItems: 'center',
-          marginVertical: 'auto',
+          marginTop: 30,
         }}>
         <ScrollView>
           <View
@@ -83,17 +95,6 @@ const AddBook = () => {
               alignItems: 'center',
               marginVertical: 'auto',
             }}>
-            <TouchableOpacity onPress={pickImage}>
-              <Image
-                style={{
-                  width: 150,
-                  height: 150,
-                  marginBottom: 30,
-                  tintColor: selectedImage ? null : colors.Quaternary,
-                }}
-                source={selectedImage ? {uri: selectedImage} : icons.addBook}
-              />
-            </TouchableOpacity>
             <View style={{width: '100%'}}>
               <TextInput
                 style={styles.input}
@@ -246,71 +247,55 @@ const AddBook = () => {
                 }}>
                 Price
               </Text>
-
-              <TextInput
-                style={{
-                  width: 350,
-                  borderRadius: 10,
-                  height: 100,
-                  margin: 7,
-                  borderWidth: 1.5,
-                  padding: 10,
-
-                  borderColor: colors.black,
-                  color: colors.Quaternary,
-                }}
-                onChangeText={onChangeMdp}
-                value={mdp}
-                placeholder=""
-                keyboardType="numeric"
-              />
-
-              <Text
-                style={{
-                  fontWeight: 'bold',
-                  color: colors.black,
-                  position: 'absolute',
-                  backgroundColor: '#fff',
-                  width: 100,
-                  top: 447,
-                  left: 20,
-                  paddingLeft: 10,
-                }}>
-                Description
-              </Text>
             </View>
-            <Button
-              style={{
-                width: 290 * scale,
-                backgroundColor: colors.Quaternary,
-                height: 50,
-                borderRadius: 10,
-                color: colors.white,
-                marginBottom: 200,
-                marginTop: 30,
-                justifyContent: 'center',
-              }}
-              mode="contained"
-              onPress={() => navigation.goBack()}>
-              <Text
-                style={{
-                  color: colors.white,
-                  fontSize: 17 * scale,
-                  fontWeight: 500,
-                }}>
-                Confirm
-              </Text>
-            </Button>
           </View>
         </ScrollView>
       </View>
+      <Button
+        style={styles.confirmButton}
+        mode="contained"
+        onPress={() => navigation.navigate('DonePaiment')}>
+        <Text style={styles.confirmText}>Confirm</Text>
+      </Button>
     </View>
   );
 };
 
-export default AddBook;
-
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+    padding: 20,
+  },
+  instructionText: {
+    marginLeft: 10,
+    fontSize: 16,
+    color: colors.Quaternary,
+    marginTop: 30,
+  },
+  item: {
+    padding: 15,
+    backgroundColor: colors.lightGray,
+    marginVertical: 5,
+    borderRadius: 8,
+    alignItems: 'flex-start',
+    width: '96%',
+    marginHorizontal: 10,
+  },
+  itemRow: {
+    justifyContent: 'space-between',
+    width: '100%',
+    flexDirection: 'row',
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.black,
+  },
+  icon: {
+    width: 20,
+    height: 20,
+  },
   input: {
     width: 350,
     borderRadius: 10,
@@ -322,4 +307,22 @@ const styles = StyleSheet.create({
     borderColor: colors.black,
     color: colors.Quaternary,
   },
+  confirmButton: {
+    width: 290 * scale,
+    backgroundColor: colors.Quaternary,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    position: 'absolute',
+    bottom: 20,
+  },
+  confirmText: {
+    color: colors.white,
+    fontSize: 17 * scale,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
 });
+
+export default PaymentCategory;

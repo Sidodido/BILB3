@@ -65,8 +65,9 @@ const actions = [
   //   position: 4,
   // },
 ];
-const FloatingActions = ({navigation}) => {
+const FloatingActions = () => {
   const isExpanded = useSharedValue(false);
+  const navigation = useNavigation();
 
   const handlePress = () => {
     isExpanded.value = !isExpanded.value;

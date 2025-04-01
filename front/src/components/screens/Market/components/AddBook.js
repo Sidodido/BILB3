@@ -21,7 +21,7 @@ const {width} = Dimensions.get('window');
 const scale = width / 420;
 
 import Header from '../../../header2';
-const AddStory = () => {
+const AddBook = () => {
   const [show, setShow] = React.useState(false);
   const [text, onChangeText] = React.useState('');
   const [mdp, onChangeMdp] = React.useState('');
@@ -68,7 +68,7 @@ const AddStory = () => {
         flex: 1,
         backgroundColor: colors.white,
       }}>
-      <Header title={'Add a Story'} />
+      <Header title={'Add a book'} />
       <View
         style={{
           flexDirection: 'column',
@@ -90,7 +90,7 @@ const AddStory = () => {
                   marginBottom: 30,
                   tintColor: selectedImage ? null : colors.Quaternary,
                 }}
-                source={selectedImage ? {uri: selectedImage} : icons.story}
+                source={selectedImage ? {uri: selectedImage} : icons.addBook}
               />
             </TouchableOpacity>
             <View style={{width: '100%'}}>
@@ -160,7 +160,123 @@ const AddStory = () => {
                 Year of edition
               </Text>
 
-             
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder=""
+                keyboardType="numeric"
+              />
+
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: colors.black,
+                  position: 'absolute',
+                  backgroundColor: '#fff',
+                  width: 120,
+                  top: 189,
+                  left: 20,
+                  paddingLeft: 10,
+                }}>
+                Phone number
+              </Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder=""
+                keyboardType="numeric"
+              />
+
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: colors.black,
+                  position: 'absolute',
+                  backgroundColor: '#fff',
+                  width: 90,
+                  top: 252,
+                  left: 20,
+                  paddingLeft: 10,
+                }}>
+                Id of seller
+              </Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder=""
+                keyboardType="numeric"
+              />
+
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: colors.black,
+                  position: 'absolute',
+                  backgroundColor: '#fff',
+                  width: 75,
+                  top: 315,
+                  left: 20,
+                  paddingLeft: 10,
+                }}>
+                Adresse
+              </Text>
+
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeMdp}
+                value={mdp}
+                placeholder=""
+                keyboardType="numeric"
+              />
+
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: colors.black,
+                  position: 'absolute',
+                  backgroundColor: '#fff',
+                  width: 60,
+                  top: 382,
+                  left: 20,
+                  paddingLeft: 10,
+                }}>
+                Price
+              </Text>
+
+              <TextInput
+                style={{
+                  width: 350,
+                  borderRadius: 10,
+                  height: 100,
+                  margin: 7,
+                  borderWidth: 1.5,
+                  padding: 10,
+
+                  borderColor: colors.black,
+                  color: colors.Quaternary,
+                }}
+                onChangeText={onChangeMdp}
+                value={mdp}
+                placeholder=""
+                keyboardType="numeric"
+              />
+
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: colors.black,
+                  position: 'absolute',
+                  backgroundColor: '#fff',
+                  width: 100,
+                  top: 447,
+                  left: 20,
+                  paddingLeft: 10,
+                }}>
+                Description
+              </Text>
             </View>
             <Button
               style={{
@@ -191,7 +307,7 @@ const AddStory = () => {
   );
 };
 
-export default AddStory;
+export default AddBook;
 
 const styles = StyleSheet.create({
   input: {

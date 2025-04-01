@@ -17,9 +17,19 @@ import {
   AddBook,
   AddPost,
   AddStory,
+  AddBookMarket,
+  AddArtMarket,
+  AddExchangeMarket,
+  AddEBookMarket,
+  CashPaiment,
+  DahabiaPaiment,
+  DonePaiment,
+  Epaiment,
+  PaymentCategory,
 } from './src/components/screens';
 const Stack = createNativeStackNavigator();
-//jgfyftyrfygftytf
+
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -31,6 +41,16 @@ export default function App() {
         <Stack.Screen name="AddPost" component={AddPost} />
         <Stack.Screen name="AddStory" component={AddStory} />
         <Stack.Screen name="AddBook" component={AddBook} />
+        <Stack.Screen name="AddBookMarket" component={AddBookMarket} />
+        <Stack.Screen name="AddEBookMarket" component={AddEBookMarket} />
+        <Stack.Screen name="AddArtMarket" component={AddArtMarket} />
+        <Stack.Screen name="AddExchangeMarket" component={AddExchangeMarket} />
+        <Stack.Screen name="CashPaiment" component={CashPaiment} />
+        <Stack.Screen name="DahabiaPaiment" component={DahabiaPaiment} />
+        <Stack.Screen name="DonePaiment" component={DonePaiment} />
+        <Stack.Screen name="Epaiment" component={Epaiment} />
+        <Stack.Screen name="PaymentCategory" component={PaymentCategory} />
+
         <Stack.Screen name="MusicPlayer" component={MusicPlayer} />
         <Stack.Screen name="Welcome2" component={Welcome2} />
         <Stack.Screen name="Welcome" component={Welcome} />

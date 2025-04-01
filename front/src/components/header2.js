@@ -24,9 +24,9 @@ const header = ({title, onPress}) => {
           <Image
             resizeMode="contain"
             style={{
-              height: 35 * scale,
-              width: 35 * scale,
-              marginTop: 10,
+              height: 25 * scale,
+              width: 25 * scale,
+              marginTop: 20,
               tintColor: colors.Quaternary,
             }}
             source={icons.back}
@@ -56,7 +56,18 @@ const header = ({title, onPress}) => {
             {title}
           </Text>
         </View>
-        <View style={{width: 40}}></View>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            resizeMode="contain"
+            style={{
+              height: 25 * scale,
+              width: 25 * scale,
+              marginTop: 20,
+              tintColor: colors.Quaternary,
+            }}
+            source={icons.options}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

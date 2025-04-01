@@ -30,7 +30,7 @@ const actions = [
   {
     text: 'Book',
     icon: require('../../../../assets/icons/live.png'),
-    name: 'bt_story',
+    name: 'bt_addBook',
     position: 2,
     color: colors.Quaternary,
     textBackground: colors.Quaternary, // Background color of the text label
@@ -44,7 +44,7 @@ const actions = [
     color: colors.Quaternary,
     textBackground: colors.Quaternary, // Background color of the text label
     textColor: colors.white, // Text color
-    name: 'bt_book',
+    name: 'bt_addEbook',
     position: 1,
   },
   {
@@ -53,7 +53,7 @@ const actions = [
     color: colors.Quaternary,
     textBackground: colors.Quaternary, // Background color of the text label
     textColor: colors.white, // Text color
-    name: 'bt_post',
+    name: 'bt_addArt',
     position: 3,
     showBackground: false,
   },
@@ -63,17 +63,18 @@ const actions = [
     color: colors.Quaternary,
     textBackground: colors.Quaternary, // Background color of the text label
     textColor: colors.white, // Text color
-    name: 'bt_poskt',
+    name: 'bt_addExchange',
     position: 3,
     showBackground: false,
   },
 ];
-const FloatingActions = ({navigation}) => {
+const FloatingActions = () => {
   const isExpanded = useSharedValue(false);
 
   const handlePress = () => {
     isExpanded.value = !isExpanded.value;
   };
+  const navigation = useNavigation();
 
   
   return (
@@ -95,12 +96,14 @@ const FloatingActions = ({navigation}) => {
           shadowRadius: 3,
         }}
         onPressItem={name => {
-          if (name === 'bt_story') {
-            navigation.navigate('AddStory');
-          } else if (name === 'bt_book') {
-            navigation.navigate('AddBook');
-          } else if (name === 'bt_post') {
-            navigation.navigate('AddPost');
+          if (name === 'bt_addEbook') {
+            navigation.navigate('AddEBookMarket');
+          } else if (name === 'bt_addBook') {
+            navigation.navigate('AddBookMarket');
+          } else if (name === 'bt_addArt') {
+            navigation.navigate('AddArtMarket');
+          } else if (name === 'bt_addExchange') {
+            navigation.navigate('AddExchangeMarket');
           }
         }}
       />

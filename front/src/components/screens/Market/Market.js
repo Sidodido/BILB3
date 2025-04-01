@@ -19,6 +19,7 @@ import {colors, icons, images} from '../../constants';
 import books from './data';
 import {Modal} from 'react-native-paper';
 import FloatingActions from './components/FloatingAction';
+import {useNavigation} from '@react-navigation/native';
 
 const numColumns = 2;
 const size = Dimensions.get('window').width / numColumns;
@@ -29,6 +30,7 @@ export default function Market() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [text, setText] = React.useState('');
   const onClose = () => setIsOpen(false);
+  const navigation = useNavigation();
 
   const [visible, setVisible] = React.useState(false);
   const [selectedBook, setSelectedBook] = React.useState(null);
@@ -190,7 +192,7 @@ export default function Market() {
               borderRadius: 10 * scale,
             }}
             mode="contained"
-            onPress={hideModal}>
+            onPress={() => navigation.navigate('PaymentCategory')}>
             <Text
               style={{
                 color: 'white',
