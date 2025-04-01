@@ -35,7 +35,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="Main">
+        initialRouteName="DonePaiment">
         <Stack.Screen name="Main" component={DrawerNavigation} />
         <Stack.Screen name="PdfReader" component={PdfReader} />
         <Stack.Screen name="AddPost" component={AddPost} />
