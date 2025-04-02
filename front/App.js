@@ -26,6 +26,8 @@ import {
   DonePaiment,
   Epaiment,
   PaymentCategory,
+  Receipt,
+  OrderDetails,
 } from './src/components/screens';
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +52,8 @@ export default function App() {
         <Stack.Screen name="DonePaiment" component={DonePaiment} />
         <Stack.Screen name="Epaiment" component={Epaiment} />
         <Stack.Screen name="PaymentCategory" component={PaymentCategory} />
+        <Stack.Screen name="OrderDetails" component={OrderDetails} />
+        <Stack.Screen name="Receipt" component={Receipt} />
 
         <Stack.Screen name="MusicPlayer" component={MusicPlayer} />
         <Stack.Screen name="Welcome2" component={Welcome2} />

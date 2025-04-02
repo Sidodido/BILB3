@@ -23,6 +23,8 @@ const ContactUs = require('../../assets/BilbPhotos/contact.png');
 const premiumm = require('../../assets/BilbPhotos/premiumm.png');
 const aPropos = require('../../assets/BilbPhotos/profile.png');
 const contact = require('../../assets/BilbPhotos/contact.png');
+const livre1 = require('../../assets/BilbPhotos/livre1.png');
+const qrCode = require('../../assets/BilbPhotos/qrCode.png');
 
 
 export default {
@@ -51,5 +53,6 @@ export default {
   premiumm,
   contact,
   pro,
-
+  livre1,
+  qrCode,
 };

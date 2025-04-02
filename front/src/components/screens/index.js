@@ -32,6 +32,8 @@ import PaymentCategory from './Payment/PaymentCategory';
 import Epaiment from './Payment/components/EPaiment';
 import AddStory from './home/components/AddStory';
 import AddPost from './home/components/AddPost';
+import OrderDetails from './Payment/components/OrderDetails';
+import Receipt from './Payment/components/Receipt';
 
 
 
@@ -70,5 +72,7 @@ export {
   DonePaiment,
   Epaiment,
   PaymentCategory,
+  Receipt,
+  OrderDetails,
 };
 
